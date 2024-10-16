@@ -33,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         body.AddRelativeForce(moveVector);
-        
+        if (body.velocity.magnitude > speedLimit)
+        {
+            print("Clamped speed!");
+            body.velocity = Vector3.ClampMagnitude(body.velocity, speedLimit);
+        }
     }
 }
