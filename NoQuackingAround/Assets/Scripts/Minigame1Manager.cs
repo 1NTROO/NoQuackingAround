@@ -12,6 +12,7 @@ public class Minigame1Manager : MonoBehaviour
 
 
     public List<GameObject> trashList = new List<GameObject>();
+    public List<GameObject> trashInventoryList = new List<GameObject>();
     public TMPro.TextMeshProUGUI remainingTrash, timerText;
     private float timer = 20f;
 
@@ -38,7 +39,7 @@ public class Minigame1Manager : MonoBehaviour
             SceneManager.LoadScene("GameScene");
         }
 
-        if (trashList.Count == 0)
+        if (trashList.Count == 0 && trashInventoryList.Count == 0)
         {
             print("Yippee!");
             SceneManager.LoadScene("GameScene");
