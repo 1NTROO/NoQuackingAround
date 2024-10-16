@@ -179,22 +179,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To-Do:
-
-    - Save position in main game scene so you don''t tp back to
-    the middle
-
-    - Make minigame more engaging / appealing
-
-    - Add the actual
-    mechanics to the minigame
-
-    - Get a start on the isometricness
-
-    - Make
-    it scalable (some code is very situational and not applicable on a wider scale)
-
-'
+  m_text: "To-Do:\n- Save position in main game scene so you don't tp back to the
+    middle\n- Make minigame more engaging / appealing\n- Add the actual mechanics
+    to the minigame\n\tSort of - but now the things just teleport and there's no
+    visual feedback about picking them up\n- Get a start on the isometricness\n-
+    Make it scalable (some code is very situational and not applicable on a wider
+    scale)\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
