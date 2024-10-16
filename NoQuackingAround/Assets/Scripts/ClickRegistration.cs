@@ -26,7 +26,7 @@ public class ClickRegistration : MonoBehaviour
         {
             Minigame1Manager.Instance.trashList.Remove(gameObject);
             Minigame1Manager.Instance.remainingTrash.text = "Trash remaining: " + Minigame1Manager.Instance.trashList.Count;
-            Minigame1Manager.Instance.trashInventoryList.Add(gameObject);
+            Minigame1Manager.Instance.trashInventoryList.Add(gameObject);   
         }
         if (gameObject.layer == 22)
         {

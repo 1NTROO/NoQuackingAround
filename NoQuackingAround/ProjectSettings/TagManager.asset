@@ -34,7 +34,7 @@ TagManager:
   - 
   - 
   - ParkTrees
-  - 
+  - ParkGround
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: ParkDecorations
     uniqueID: 423439363
+    locked: 0
+  - name: Interactables
+    uniqueID: 1004065887
     locked: 0
