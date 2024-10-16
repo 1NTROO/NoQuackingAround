@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 2601819471
+    locked: 0
+  - name: ParkDecorations
+    uniqueID: 423439363
+    locked: 0
