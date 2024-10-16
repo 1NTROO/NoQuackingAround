@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,8 +36,17 @@ public class PlayerMovement : MonoBehaviour
         body.AddRelativeForce(moveVector);
         if (body.velocity.magnitude > speedLimit)
         {
-            print("Clamped speed!");
             body.velocity = Vector3.ClampMagnitude(body.velocity, speedLimit);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        print(collision.gameObject.name);
+        if (collision.gameObject.CompareTag("statics"))
+        {
+            body.velocity = new Vector3(0, 0, 0);
+            print("I collided!");
         }
     }
 }
