@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int speedLimit;
     [SerializeField] Rigidbody2D body;
+    public Vector3 startPosition;
     void Start()
     {
         
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // this shit doesn't work lmfao
     void OnCollisionEnter(Collision collision)
     {
         print(collision.gameObject.name);
