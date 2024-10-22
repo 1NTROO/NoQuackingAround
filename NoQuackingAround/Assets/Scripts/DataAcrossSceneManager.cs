@@ -28,7 +28,7 @@ public class DataAcrossSceneManager : MonoBehaviour
         if (player != null)
         {
             playerPos = player.transform.position;
-            player.GetComponent<PlayerMovement>().startPosition = playerPos;
+            player.GetComponent<Player>().startPosition = playerPos;
         }
     }
 }

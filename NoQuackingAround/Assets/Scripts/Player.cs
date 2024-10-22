@@ -3,15 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    private static Player instance;
+    public static Player Instance { get { return instance; }}
+
     [SerializeField] int speed;
     [SerializeField] int speedLimit;
-    [SerializeField] Rigidbody2D body;
+    [SerializeField] Rigidbody body;
     public Vector3 startPosition;
+
+    void Awake()
+    {
+        if (instance != null) 
+        {
+            startPosition = instance.gameObject.transform.position;
+            Destroy(instance.gameObject);
+        }
+        instance = this;
+
+        SetStartPos();
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
-        
     }
 
     void Update()
@@ -42,13 +58,19 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // this shit doesn't work lmfao
-    void OnCollisionEnter(Collision collision)
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     print(collision.gameObject.name);
+    //     if (collision.gameObject.CompareTag("statics"))
+    //     {
+    //         body.velocity = new Vector3(0, 0, 0);
+    //         print("I collided!");
+    //     }
+    // }
+
+    public void SetStartPos()
     {
-        print(collision.gameObject.name);
-        if (collision.gameObject.CompareTag("statics"))
-        {
-            body.velocity = new Vector3(0, 0, 0);
-            print("I collided!");
-        }
+        transform.position = startPosition;
+        startPosition = Vector3.zero;
     }
 }
