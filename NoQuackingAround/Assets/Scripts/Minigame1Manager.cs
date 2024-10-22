@@ -40,14 +40,14 @@ public class Minigame1Manager : MonoBehaviour
         {
             print("Fucking idiot.");
             SceneManager.LoadScene("GameScene");
-            Player.Instance.SetStartPos();
+            Player.Instance.SetStartPosAndScale(0.5f);
         }
 
         if (trashList.Count == 0 && trashInventoryList.Count == 0)
         {
             print("Yippee!");
             SceneManager.LoadScene("GameScene");
-            Player.Instance.SetStartPos();
+            Player.Instance.SetStartPosAndScale(0.5f);
         }
     }
 

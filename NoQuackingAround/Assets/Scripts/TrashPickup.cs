@@ -17,10 +17,8 @@ public class TrashPickup : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        print("Collided!");
         if (collision.gameObject.CompareTag("Player"))
         {
-            print("yes");
             Minigame1Manager.Instance.AddToInventory(gameObject);
         }
     }

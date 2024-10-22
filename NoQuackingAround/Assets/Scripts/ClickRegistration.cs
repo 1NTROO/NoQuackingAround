@@ -21,6 +21,8 @@ public class ClickRegistration : MonoBehaviour
         {
             Player.Instance.startPosition = Player.Instance.transform.position;
             SceneManager.LoadScene("MiniGame1Scene");
+            Player.Instance.transform.localScale *= 2;
         }
+        if (gameObject.layer == 22) print("Come on.");
     }
 }

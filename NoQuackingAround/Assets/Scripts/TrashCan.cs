@@ -16,6 +16,7 @@ public class TrashCan : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
+        print("uh huh");
         if (collision.gameObject.CompareTag("Player"))
         {
             if (Minigame1Manager.Instance.trashInventoryList.Count > 0)

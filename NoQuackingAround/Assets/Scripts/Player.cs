@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         }
         instance = this;
 
-        SetStartPos();
+        SetStartPosAndScale(1);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -68,9 +68,11 @@ public class Player : MonoBehaviour
     //     }
     // }
 
-    public void SetStartPos()
+    public void SetStartPosAndScale(float scalar)
     {
         transform.position = startPosition;
         startPosition = Vector3.zero;
+
+        transform.localScale *= scalar;
     }
 }
