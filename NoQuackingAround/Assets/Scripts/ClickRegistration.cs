@@ -25,6 +25,8 @@ public class ClickRegistration : MonoBehaviour
         }
         if (gameObject.CompareTag("Minigame2Interact"))
         {
+            Player.Instance.startPosition = Player.Instance.transform.position;
+            Player.Instance.GetComponentInChildren<SpriteRenderer>().color = new Color(0,0,0,0);
             SceneManager.LoadScene("MiniGame2Scene");
         }
     }

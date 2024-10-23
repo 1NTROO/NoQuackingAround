@@ -14,7 +14,7 @@ public class Minigame2Manager : MonoBehaviour
 
     [SerializeField] TMPro.TextMeshProUGUI pointsUI, timerText;
 
-    [SerializeField] List<GameObject> levelsList = new List<GameObject>();
+    [SerializeField] List<GameObject> levelsList;
     private GameObject levelNow;
     public Vector2 prev;
     public float totalDistance;
@@ -22,7 +22,7 @@ public class Minigame2Manager : MonoBehaviour
     public int points;
     private float pointMult = 1;
     public bool isBeingHeld, wasBeingHeld;
-    private float timer, baseTimer = 5f;
+    private float timer, baseTimer = 5f/1.1f;
 
 
     public Vector2 ReadMouse()
@@ -42,7 +42,8 @@ public class Minigame2Manager : MonoBehaviour
         points = 0;
         pointsUI.text = Convert.ToString("Points: " + points);
 
-        levelNow = Instantiate(levelsList.First<GameObject>(), Vector3.zero, Quaternion.identity);
+        ResetTimer();
+        levelNow = Instantiate(levelsList.ElementAt(0), Vector3.zero, Quaternion.identity);
     }
 
     void Update()
@@ -55,10 +56,15 @@ public class Minigame2Manager : MonoBehaviour
             print("You fucked up!");
             ResetTimer();
             pointMult *= 1.5f;
-            if (levelsList[1] != null) NextLevel(levelNow, levelsList[1]);
+            if (levelsList.Count() != 1)
+            {
+                NextLevel(levelsList[1]);
+            }
             else
             {
+                Player.Instance.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, 0, 1f);
                 SceneManager.LoadScene(0);
+                Player.Instance.SetStartPosAndScale(1);
             }
         }
 
@@ -84,12 +90,13 @@ public class Minigame2Manager : MonoBehaviour
         pointsUI.text = Convert.ToString("Points: " + points);
         totalDistance = 0;
     }
-    void NextLevel(GameObject currentLevel, GameObject nextLevel)
+    void NextLevel(GameObject nextLevel)
     {
-        levelNow = nextLevel;
-        levelsList.Remove(currentLevel);
-        Destroy(GameObject.FindGameObjectsWithTag("GraffitiLevel")[0]);
-        Instantiate(nextLevel, Vector3.zero, Quaternion.identity);
+        levelsList.RemoveAt(0);
+        Destroy(GameObject.FindGameObjectWithTag("GraffitiLevel"));
+        levelNow = Instantiate(nextLevel, Vector3.zero, Quaternion.identity);
+
+        // change background to next phase
     }
     void ResetTimer()
     {
