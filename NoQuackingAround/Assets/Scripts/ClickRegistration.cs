@@ -17,12 +17,15 @@ public class ClickRegistration : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (gameObject.name == "MinigameInteract") // PLACEHOLDER. Will use tags later.
+        if (gameObject.CompareTag("Minigame1Interact")) // PLACEHOLDER. Will use tags later.
         {
             Player.Instance.startPosition = Player.Instance.transform.position;
             SceneManager.LoadScene("MiniGame1Scene");
             Player.Instance.transform.localScale *= 2;
         }
-        if (gameObject.layer == 22) print("Come on.");
+        if (gameObject.CompareTag("Minigame2Interact"))
+        {
+            SceneManager.LoadScene("MiniGame2Scene");
+        }
     }
 }

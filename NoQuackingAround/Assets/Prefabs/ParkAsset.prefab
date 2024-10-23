@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2909855184882482827}
   - component: {fileID: 6892571405802217165}
   m_Layer: 0
-  m_Name: Brush
+  m_Name: ParkAsset
   m_TagString: statics
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

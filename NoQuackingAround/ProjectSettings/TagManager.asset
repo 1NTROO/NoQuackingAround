@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - statics
+  - Minigame1Interact
+  - Minigame2Interact
+  - GraffitiLevel
   layers:
   - Default
   - TransparentFX
