@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     public Canvas canvas;
     [SerializeField] TMPro.TextMeshProUGUI npcName, npcText;
+    private List<string> texts = new List<string>();
     public bool isYappingActive, isYappingDone;
+    public int howManyYaps = 0, yapsMax;
     public int yapToMinigame;
 
     void Awake()
@@ -32,8 +35,11 @@ public class GameManager : MonoBehaviour
             switch (yapToMinigame)
             {
                 case 1:
+                    yapsMax = 1;
                     npcName.text = "Raquel the Rat";
-                    npcText.text = "Please help me! My children are stuck under this pile of human waste. Can you please help them? Oh, dear Nature...";
+                    texts.Add("Please help me! My children are stuck under this pile of human waste. Can you please help them? Oh, dear Nature...");
+                    texts.Add("I tried doing it myself, but the waste is too heavy! Maybe if you pick up different types of waste, you can carry more of it?");
+                    npcText.text = texts[howManyYaps];
                     break;
                 case 2:
                     npcName.text = "Vandalised Board";
@@ -46,7 +52,13 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                isYappingDone = true;
+                if (howManyYaps < yapsMax)
+                {
+                    howManyYaps++;
+                    npcText.text = texts[howManyYaps];
+                }
+                else
+                    isYappingDone = true;
             }
         }
     }
