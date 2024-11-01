@@ -104,7 +104,7 @@ public class Minigame2Manager : MonoBehaviour
             failImage.enabled = true;
             failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Failed!";
             totalFailures++;
-            timer = 1;
+            if (timer > 1) timer = 1;
         }
     }
     void NextLevel(GameObject nextLevel)
