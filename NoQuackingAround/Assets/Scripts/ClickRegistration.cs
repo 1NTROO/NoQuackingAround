@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ClickRegistration : MonoBehaviour
 {
+
     void Start()
     {
         
@@ -12,22 +13,35 @@ public class ClickRegistration : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.isYappingDone)
+        {
+            GameManager.Instance.isYappingActive = false;
+            GameManager.Instance.isYappingDone = false;
+            Player.Instance.startPosition = Player.Instance.transform.position;
 
+            if (GameManager.Instance.yapToMinigame == 1)
+            {
+                Player.Instance.transform.localScale *= 2;
+            }
+            else if (GameManager.Instance.yapToMinigame == 2)
+            {
+                Player.Instance.GetComponentInChildren<SpriteRenderer>().color = new Color(0,0,0,0);
+            }
+            SceneManager.LoadScene(GameManager.Instance.yapToMinigame);
+        }
     }
 
     void OnMouseDown()
     {
         if (gameObject.CompareTag("Minigame1Interact")) // PLACEHOLDER. Will use tags later.
         {
-            Player.Instance.startPosition = Player.Instance.transform.position;
-            SceneManager.LoadScene("MiniGame1Scene");
-            Player.Instance.transform.localScale *= 2;
+            GameManager.Instance.isYappingActive = true;
+            GameManager.Instance.yapToMinigame = 1;
         }
         if (gameObject.CompareTag("Minigame2Interact"))
         {
-            Player.Instance.startPosition = Player.Instance.transform.position;
-            Player.Instance.GetComponentInChildren<SpriteRenderer>().color = new Color(0,0,0,0);
-            SceneManager.LoadScene("MiniGame2Scene");
+            GameManager.Instance.isYappingActive = true;
+            GameManager.Instance.yapToMinigame = 2;
         }
     }
 }
