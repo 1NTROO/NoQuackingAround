@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2417162306537228580}
   - component: {fileID: 5534067394697037350}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: AssetSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
