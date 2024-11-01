@@ -12,7 +12,6 @@ public class DataAcrossSceneManager : MonoBehaviour
     #nullable enable
     [SerializeField] GameObject? player;
     #nullable disable
-    private Vector3 playerPos;
     void Awake()
     {
         if (instance != null) Destroy(instance);
@@ -27,10 +26,6 @@ public class DataAcrossSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (player != null)
-        {
-            playerPos = player.transform.position;
-            player.GetComponent<Player>().startPosition = playerPos;
-        }
+
     }
 }
