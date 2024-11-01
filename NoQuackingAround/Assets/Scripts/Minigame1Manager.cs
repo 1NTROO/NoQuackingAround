@@ -39,14 +39,14 @@ public class Minigame1Manager : MonoBehaviour
 
         if (timer <= 0)
         {
-            DataAcrossSceneManager.Instance.miniGameOne = false;
+            Player.Instance.miniGameOne = false;
             Player.Instance.SetStartPosAndScale(0.5f);
             SceneManager.LoadScene("GameScene");
         }
 
         if (trashList.Count == 0 && trashInventoryList.Count == 0)
         {
-            DataAcrossSceneManager.Instance.miniGameOne = true;
+            Player.Instance.miniGameOne = true;
             Player.Instance.SetStartPosAndScale(0.5f);
             SceneManager.LoadScene("GameScene");
         }

@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Minigame2Manager : MonoBehaviour
 {
@@ -15,14 +16,17 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI pointsUI, timerText;
 
     [SerializeField] List<GameObject> levelsList;
+    [SerializeField] Image failImage;
     private GameObject levelNow;
     public Vector2 prev;
     public float totalDistance;
 
     public int points;
     private float pointMult = 1;
-    public bool isBeingHeld, wasBeingHeld;
+    public bool isBeingHeld, wasBeingHeld, failed;
     private float timer, baseTimer = 5f/1.1f;
+    private int failureCounter = 0;
+    private int totalFailures = 0;
 
 
     public Vector2 ReadMouse()
@@ -53,7 +57,7 @@ public class Minigame2Manager : MonoBehaviour
         timerText.text = Convert.ToString(Math.Max(0.01f, timerScale * Math.Round(timer / timerScale, 3)));
         if (timer <= 0)
         {
-            print("You fucked up!");
+            failureCounter = 0;
             ResetTimer();
             pointMult *= 1.5f;
             if (levelsList.Count() != 1)
@@ -62,6 +66,11 @@ public class Minigame2Manager : MonoBehaviour
             }
             else
             {
+                if (totalFailures > 1)
+                {
+                    Player.Instance.miniGameTwo = false;
+                }
+                else Player.Instance.miniGameTwo = true;
                 Player.Instance.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, 0, 1f);
                 SceneManager.LoadScene(0);
                 Player.Instance.SetStartPosAndScale(1);
@@ -85,10 +94,18 @@ public class Minigame2Manager : MonoBehaviour
     }
     public void MouseExit(int addPoints)
     {
+        failureCounter++;
         isBeingHeld = false;
         points += Convert.ToInt32(pointMult * addPoints * totalDistance/100);
         pointsUI.text = Convert.ToString("Points: " + points);
         totalDistance = 0;
+        if (failureCounter > 6)
+        {
+            failImage.enabled = true;
+            failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Failed!";
+            totalFailures++;
+            timer = 1;
+        }
     }
     void NextLevel(GameObject nextLevel)
     {
@@ -100,6 +117,9 @@ public class Minigame2Manager : MonoBehaviour
     }
     void ResetTimer()
     {
+        failImage.enabled = false;
+        failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "";
+
         timer = baseTimer;
         timer *= 1.1f;
         baseTimer *= 1.1f;

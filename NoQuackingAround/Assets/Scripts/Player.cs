@@ -12,12 +12,15 @@ public class Player : MonoBehaviour
     [SerializeField] int speedLimit;
     [SerializeField] Rigidbody body;
     public Vector3 startPosition;
+    public bool miniGameOne, miniGameTwo;
 
     void Awake()
     {
         if (instance != null) 
         {
             startPosition = instance.gameObject.transform.position;
+            miniGameOne = instance.miniGameOne;
+            miniGameTwo = instance.miniGameTwo;
             Destroy(instance.gameObject);
         }
         instance = this;
