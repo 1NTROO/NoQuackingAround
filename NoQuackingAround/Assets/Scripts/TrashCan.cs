@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TrashCan : MonoBehaviour
@@ -20,7 +21,7 @@ public class TrashCan : MonoBehaviour
         {
             if (Minigame1Manager.Instance.trashInventoryList.Count > 0)
             {
-                Minigame1Manager.Instance.RemoveFromInventory(Minigame1Manager.Instance.trashInventoryList[0]);
+                Minigame1Manager.Instance.ClearInventory();
             }
         }
     }

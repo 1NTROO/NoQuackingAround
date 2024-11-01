@@ -80,7 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e265c7cb3d81cf4408b0bea04a2f48f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisTrashType: 0
   hitBox: {fileID: 4584724814812078365}
+  sprite: {fileID: 3668930179010067072}
 --- !u!1 &3868091048427648973
 GameObject:
   m_ObjectHideFlags: 0

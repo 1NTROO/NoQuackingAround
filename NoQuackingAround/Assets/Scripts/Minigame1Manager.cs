@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Minigame1Manager : MonoBehaviour
 {
@@ -16,8 +18,7 @@ public class Minigame1Manager : MonoBehaviour
     public List<GameObject> trashList = new List<GameObject>();
     public List<GameObject> trashInventoryList = new List<GameObject>();
     public TMPro.TextMeshProUGUI remainingTrash, timerText;
-    private float timer = 20f;
-
+    private float timer = 25f;
     void Awake()
     {
         if (instance != null) Destroy(instance);
@@ -38,14 +39,12 @@ public class Minigame1Manager : MonoBehaviour
 
         if (timer <= 0)
         {
-            print("Fucking idiot.");
             SceneManager.LoadScene("GameScene");
             Player.Instance.SetStartPosAndScale(0.5f);
         }
 
         if (trashList.Count == 0 && trashInventoryList.Count == 0)
         {
-            print("Yippee!");
             SceneManager.LoadScene("GameScene");
             Player.Instance.SetStartPosAndScale(0.5f);
         }
@@ -57,15 +56,34 @@ public class Minigame1Manager : MonoBehaviour
         {
             return;
         }
+        foreach (GameObject t in trashInventoryList)
+        {
+            if (t.GetComponent<TrashPickup>().thisTrashType == trash.GetComponent<TrashPickup>().thisTrashType) 
+                return;
+        }
         Instance.trashList.Remove(trash);
         Instance.remainingTrash.text = "Trash remaining: " + Instance.trashList.Count;
         Instance.trashInventoryList.Add(trash);
-        Instantiate(trashUI, inventoryTransform);
-        Destroy(trash);
+
+        trash.GetComponent<SphereCollider>().enabled = false;
+        
+        GameObject newTrashUI = Instantiate(trashUI, inventoryTransform);
+
+        Color colour = trash.GetComponentInChildren<SpriteRenderer>().color;
+        newTrashUI.GetComponentInChildren<Image>().color = colour;
+        colour.a = 0;
+        trash.GetComponentInChildren<SpriteRenderer>().color = colour;
     }
-    public void RemoveFromInventory(GameObject trash)
+    public void ClearInventory()
     {
-        Instance.trashInventoryList.Remove(trash);
-        Destroy(inventoryTransform.GetChild(0).gameObject);
+        for (int i = 0; i < trashInventoryList.Count; i++)
+        {
+            Destroy(trashInventoryList[i]);
+        }
+        foreach (Transform UI in inventoryTransform)
+        {
+            Destroy(UI.gameObject);
+        }
+        trashInventoryList.Clear();
     }
 }
