@@ -15,6 +15,7 @@ public class Minigame1Manager : MonoBehaviour
 
     [SerializeField] Transform inventoryTransform;
     [SerializeField] GameObject trashUI;
+    [SerializeField] AudioClip minigameMusic;
     public List<GameObject> trashList = new List<GameObject>();
     public List<GameObject> trashInventoryList = new List<GameObject>();
     public TMPro.TextMeshProUGUI remainingTrash, timerText;
@@ -27,6 +28,7 @@ public class Minigame1Manager : MonoBehaviour
     void Start()
     {
         remainingTrash.text = "Trash remaining: " + trashList.Count;
+        AudioManager.Instance.PlayAudio(minigameMusic);
     }
 
     void Update()

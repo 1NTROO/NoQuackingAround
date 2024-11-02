@@ -16,16 +16,19 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI pointsUI, timerText;
 
     [SerializeField] List<GameObject> levelsList;
-    [SerializeField] Image failImage;
+    [SerializeField] GameObject failureUI;
+    [SerializeField] Transform failureParentTransform;
     private GameObject levelNow;
+    private int currentLevel = 1;
     public Vector2 prev;
     public float totalDistance;
 
     public int points;
     private float pointMult = 1;
-    public bool isBeingHeld, wasBeingHeld, failed;
+    public bool isBeingHeld, wasBeingHeld;
     private float timer, baseTimer = 5f/1.1f;
     private int failureCounter = 0;
+    public int succeeded = 0;
     private int totalFailures = 0;
 
 
@@ -43,8 +46,8 @@ public class Minigame2Manager : MonoBehaviour
     void Start()
     {
         isBeingHeld = false;
-        points = 0;
-        pointsUI.text = Convert.ToString("Points: " + points);
+        // points = 0;
+        // pointsUI.text = Convert.ToString("Points: " + points);
 
         ResetTimer();
         levelNow = Instantiate(levelsList.ElementAt(0), Vector3.zero, Quaternion.identity);
@@ -57,12 +60,16 @@ public class Minigame2Manager : MonoBehaviour
         timerText.text = Convert.ToString(Math.Max(0.01f, timerScale * Math.Round(timer / timerScale, 3)));
         if (timer <= 0)
         {
-            failureCounter = 0;
+            if (succeeded < currentLevel + 2)
+            {
+                totalFailures++;
+            }
             ResetTimer();
-            pointMult *= 1.5f;
+            // pointMult *= 1.5f;
             if (levelsList.Count() != 1)
             {
                 NextLevel(levelsList[1]);
+                currentLevel++;
             }
             else
             {
@@ -95,14 +102,15 @@ public class Minigame2Manager : MonoBehaviour
     public void MouseExit(int addPoints)
     {
         failureCounter++;
+        UpdateFailureCounter();
         isBeingHeld = false;
-        points += Convert.ToInt32(pointMult * addPoints * totalDistance/100);
-        pointsUI.text = Convert.ToString("Points: " + points);
+        // points += Convert.ToInt32(pointMult * addPoints * totalDistance/100);
+        // pointsUI.text = Convert.ToString("Points: " + points);
         totalDistance = 0;
-        if (failureCounter > 6)
+        if (failureCounter > 3)
         {
-            failImage.enabled = true;
-            failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Failed!";
+            // failImage.enabled = true;
+            // failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Failed!";
             totalFailures++;
             if (timer > 1) timer = 1;
         }
@@ -117,11 +125,22 @@ public class Minigame2Manager : MonoBehaviour
     }
     void ResetTimer()
     {
-        failImage.enabled = false;
-        failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "";
+        // failImage.enabled = false;
+        // failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "";
 
         timer = baseTimer;
         timer *= 1.1f;
         baseTimer *= 1.1f;
+
+        failureCounter = 0;
+
+        foreach (Transform pip in failureParentTransform.transform)
+        {
+            Destroy(pip.gameObject);
+        }
+    }
+    void UpdateFailureCounter()
+    {
+        Instantiate(failureUI, failureParentTransform);
     }
 }

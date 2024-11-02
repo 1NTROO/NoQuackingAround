@@ -33,12 +33,12 @@ public class ClickRegistration : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (gameObject.CompareTag("Minigame1Interact")) // PLACEHOLDER. Will use tags later.
+        if (gameObject.CompareTag("Minigame1Interact") && !Player.Instance.miniGameOne) // PLACEHOLDER. Will use tags later.
         {
             GameManager.Instance.isYappingActive = true;
             GameManager.Instance.yapToMinigame = 1;
         }
-        if (gameObject.CompareTag("Minigame2Interact"))
+        if (gameObject.CompareTag("Minigame2Interact") && !Player.Instance.miniGameTwo)
         {
             GameManager.Instance.isYappingActive = true;
             GameManager.Instance.yapToMinigame = 2;
