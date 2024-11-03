@@ -31,7 +31,7 @@ public class GraffitiForm : MonoBehaviour
     {
         if (Minigame2Manager.Instance.totalDistance > 250)
         {
-            Minigame2Manager.Instance.MouseExit(points);
+            Minigame2Manager.Instance.MouseExit();
             GetComponentInChildren<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
         } 
     }
