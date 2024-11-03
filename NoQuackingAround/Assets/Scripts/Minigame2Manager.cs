@@ -16,7 +16,7 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI pointsUI, timerText;
 
     [SerializeField] List<GameObject> levelsList;
-    [SerializeField] GameObject failureUI;
+    [SerializeField] GameObject failureUI, successUI;
     [SerializeField] Transform failureParentTransform;
     private GameObject levelNow;
     private int currentLevel = 1;
@@ -63,6 +63,11 @@ public class Minigame2Manager : MonoBehaviour
             if (succeeded < currentLevel + 2)
             {
                 totalFailures++;
+                UpdateCounter(false);
+            }
+            else
+            {
+                UpdateCounter(true);
             }
             ResetTimer();
             // pointMult *= 1.5f;
@@ -101,19 +106,19 @@ public class Minigame2Manager : MonoBehaviour
     }
     public void MouseExit(int addPoints)
     {
-        failureCounter++;
-        UpdateFailureCounter();
+        // failureCounter++;
+        // UpdateFailureCounter();
         isBeingHeld = false;
         // points += Convert.ToInt32(pointMult * addPoints * totalDistance/100);
         // pointsUI.text = Convert.ToString("Points: " + points);
         totalDistance = 0;
-        if (failureCounter > 3)
-        {
-            // failImage.enabled = true;
-            // failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Failed!";
-            totalFailures++;
-            if (timer > 1) timer = 1;
-        }
+        // if (failureCounter > 3)
+        // {
+        //     // failImage.enabled = true;
+        //     // failImage.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Failed!";
+        //     totalFailures++;
+        //     if (timer > 1) timer = 1;
+        // }
     }
     void NextLevel(GameObject nextLevel)
     {
@@ -134,13 +139,16 @@ public class Minigame2Manager : MonoBehaviour
 
         failureCounter = 0;
 
-        foreach (Transform pip in failureParentTransform.transform)
-        {
-            Destroy(pip.gameObject);
-        }
+        // foreach (Transform pip in failureParentTransform.transform)
+        // {
+        //     Destroy(pip.gameObject);
+        // }
     }
-    void UpdateFailureCounter()
+    void UpdateCounter(bool isSuccess)
     {
-        Instantiate(failureUI, failureParentTransform);
+        if (!isSuccess)
+            Instantiate(failureUI, failureParentTransform);
+        else
+            Instantiate(successUI, failureParentTransform);
     }
 }
