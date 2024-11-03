@@ -1962,11 +1962,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1755262700347111209, guid: 3a68e0ebd8dc88b4ca5c8c602f49f0fd, type: 3}
       propertyPath: speed
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1755262700347111209, guid: 3a68e0ebd8dc88b4ca5c8c602f49f0fd, type: 3}
       propertyPath: speedLimit
-      value: 60
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1755262700347111209, guid: 3a68e0ebd8dc88b4ca5c8c602f49f0fd, type: 3}
       propertyPath: patheticPark
