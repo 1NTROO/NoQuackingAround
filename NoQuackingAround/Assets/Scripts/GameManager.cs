@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
                 case 4:
                     goToMiniGame = false;
                     npcName.text = "Informative Board";
+                    npcText.text = "You look at the board, filled with a sense of pride and accomplishment. Nobody will ever make the fatal mistake of feeding bread to ducks again.";
                     break;
                 default:
                     break;

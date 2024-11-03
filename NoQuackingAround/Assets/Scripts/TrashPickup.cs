@@ -20,7 +20,7 @@ public class TrashPickup : MonoBehaviour
     {
         Array allTypes = Enum.GetValues(typeof(TrashType));
         System.Random random = new();
-        thisTrashType = (TrashType)allTypes.GetValue(random.Next(allTypes.Length));
+        // thisTrashType = (TrashType)allTypes.GetValue(random.Next(allTypes.Length));
 
         switch (thisTrashType)
         {

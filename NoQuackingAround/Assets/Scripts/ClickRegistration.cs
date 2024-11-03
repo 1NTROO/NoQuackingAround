@@ -35,26 +35,26 @@ public class ClickRegistration : MonoBehaviour
     {
         if (gameObject.CompareTag("Minigame1Interact"))
         {
+            GameManager.Instance.isYappingActive = true;
             if (!Player.Instance.miniGameOne)
             {
-                GameManager.Instance.isYappingActive = true;
                 GameManager.Instance.yapToMinigame = 1;
             }
             else
             {
-
+                GameManager.Instance.yapToMinigame = 3;
             }
         }
         if (gameObject.CompareTag("Minigame2Interact"))
         {
+            GameManager.Instance.isYappingActive = true;
             if (!Player.Instance.miniGameTwo)
             {
-                GameManager.Instance.isYappingActive = true;
                 GameManager.Instance.yapToMinigame = 2;
             }
             else
             {
-                
+                GameManager.Instance.yapToMinigame = 4;
             }
         }
     }

@@ -369,6 +369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1462795891017724511, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
+      propertyPath: thisTrashType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2248238400774648095, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_Name
       value: Trash
@@ -499,6 +503,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1462795891017724511, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
+      propertyPath: thisTrashType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2248238400774648095, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_Name
       value: Trash (2)
@@ -846,6 +854,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1462795891017724511, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
+      propertyPath: thisTrashType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2248238400774648095, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_Name
       value: Trash
@@ -911,6 +923,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1462795891017724511, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
+      propertyPath: thisTrashType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2248238400774648095, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_Name
       value: Trash (3)
@@ -941,15 +957,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9091771989730709018, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9091771989730709018, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9091771989730709018, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9091771989730709018, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1209,6 +1225,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1462795891017724511, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
+      propertyPath: thisTrashType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2248238400774648095, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_Name
       value: Trash (1)
@@ -1349,6 +1369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1462795891017724511, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
+      propertyPath: thisTrashType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2248238400774648095, guid: 92ef5f0d39e9c4f48abe3fcb217a50bb, type: 3}
       propertyPath: m_Name
       value: Trash
@@ -1993,8 +2017,8 @@ SceneRoots:
   - {fileID: 707244192}
   - {fileID: 1943867919}
   - {fileID: 1414454643}
-  - {fileID: 557690182}
   - {fileID: 927046016}
+  - {fileID: 557690182}
   - {fileID: 632549789}
   - {fileID: 1511383664}
   - {fileID: 2108516598}
