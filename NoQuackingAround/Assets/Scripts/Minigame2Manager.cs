@@ -15,6 +15,11 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI pointsUI, timerText;
 
     [SerializeField] List<GameObject> levelsList;
+<<<<<<< Updated upstream
+=======
+    [SerializeField] GameObject failureUI, successUI;
+    [SerializeField] Transform uiTransform;
+>>>>>>> Stashed changes
     private GameObject levelNow;
     public Vector2 prev;
     public float totalDistance;
@@ -53,9 +58,26 @@ public class Minigame2Manager : MonoBehaviour
         timerText.text = Convert.ToString(Math.Max(0.01f, timerScale * Math.Round(timer / timerScale, 3)));
         if (timer <= 0)
         {
+<<<<<<< Updated upstream
             print("You fucked up!");
             ResetTimer();
             pointMult *= 1.5f;
+=======
+            if (succeeded < currentLevel + 2)
+            {
+                print("yes");
+                totalFailures++;
+                Instantiate(failureUI, uiTransform);
+            }
+            else
+            {
+                print("no");
+                Instantiate(successUI, uiTransform);
+            }
+            ResetTimer();
+            succeeded = 0;
+            // pointMult *= 1.5f;
+>>>>>>> Stashed changes
             if (levelsList.Count() != 1)
             {
                 NextLevel(levelsList[1]);
@@ -83,8 +105,12 @@ public class Minigame2Manager : MonoBehaviour
         prev = now;
         totalDistance += delta.magnitude;
     }
-    public void MouseExit(int addPoints)
+    public void MouseExit()
     {
+<<<<<<< Updated upstream
+=======
+        // failureCounter++;
+>>>>>>> Stashed changes
         isBeingHeld = false;
         points += Convert.ToInt32(pointMult * addPoints * totalDistance/100);
         pointsUI.text = Convert.ToString("Points: " + points);
@@ -103,5 +129,29 @@ public class Minigame2Manager : MonoBehaviour
         timer = baseTimer;
         timer *= 1.1f;
         baseTimer *= 1.1f;
+<<<<<<< Updated upstream
+=======
+
+        failureCounter = 0;
+
+        // foreach (Transform pip in uiTransform.transform)
+        // {
+        //     Destroy(pip.gameObject);
+        // }
+>>>>>>> Stashed changes
     }
+    // void UpdateCounter(bool isSuccess)
+    // {
+    //     print("updated");
+    //     if (isSuccess)
+    //     {
+    //         print("is success");
+    //         Instantiate(successUI, uiTransform);
+    //     }
+    //     else if (!isSuccess)
+    //     {
+    //         print("is no success");
+    //         Instantiate(failureUI, uiTransform);
+    //     }
+    // }
 }

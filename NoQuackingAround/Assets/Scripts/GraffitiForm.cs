@@ -29,7 +29,7 @@ public class GraffitiForm : MonoBehaviour
     }
     void OnMouseExit()
     {
-        if (Minigame2Manager.Instance.totalDistance != 0)
+        if (Minigame2Manager.Instance.totalDistance > 250)
         {
             Minigame2Manager.Instance.MouseExit(points);
             GetComponentInChildren<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
@@ -39,7 +39,7 @@ public class GraffitiForm : MonoBehaviour
     {
         if (Minigame2Manager.Instance.totalDistance != 0)
         {
-            Minigame2Manager.Instance.MouseExit(points);
+            Minigame2Manager.Instance.MouseExit();
             GetComponentInChildren<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
         } 
     }
