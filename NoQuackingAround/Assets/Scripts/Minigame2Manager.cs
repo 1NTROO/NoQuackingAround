@@ -18,16 +18,15 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] List<GameObject> levelsList;
     [SerializeField] GameObject failureUI, successUI;
     [SerializeField] Transform failureParentTransform;
+    [SerializeField] AudioClip minigameMusic;
     private GameObject levelNow;
     private int currentLevel = 1;
     public Vector2 prev;
     public float totalDistance;
 
     public int points;
-    private float pointMult = 1;
     public bool isBeingHeld, wasBeingHeld;
     private float timer, baseTimer = 5f/1.1f;
-    private int failureCounter = 0;
     public int succeeded = 0;
     private int totalFailures = 0;
 
@@ -51,6 +50,8 @@ public class Minigame2Manager : MonoBehaviour
 
         ResetTimer();
         levelNow = Instantiate(levelsList.ElementAt(0), Vector3.zero, Quaternion.identity);
+
+        AudioManager.Instance.PlayAudio(minigameMusic);
     }
 
     void Update()
@@ -136,8 +137,6 @@ public class Minigame2Manager : MonoBehaviour
         timer = baseTimer;
         timer *= 1.1f;
         baseTimer *= 1.1f;
-
-        failureCounter = 0;
 
         // foreach (Transform pip in failureParentTransform.transform)
         // {

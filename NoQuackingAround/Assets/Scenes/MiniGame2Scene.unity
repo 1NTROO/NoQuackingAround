@@ -572,6 +572,7 @@ MonoBehaviour:
   failureUI: {fileID: 2195363564943962306, guid: c789c0b67d5a85b41b0749dd7da00ad1, type: 3}
   successUI: {fileID: 2195363564943962306, guid: 2d4748dbc0d5ea1468cbaad5ba9b34d8, type: 3}
   failureParentTransform: {fileID: 1472282257}
+  minigameMusic: {fileID: 8300000, guid: 9aebe2d2e0f76834eb8d2515da371a60, type: 3}
   prev: {x: 0, y: 0}
   totalDistance: 0
   points: 0
