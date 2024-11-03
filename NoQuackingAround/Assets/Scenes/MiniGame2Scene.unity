@@ -569,15 +569,15 @@ MonoBehaviour:
   - {fileID: 389611742473890733, guid: 4fdd3cbe93bd673498ce48d6ba701221, type: 3}
   - {fileID: 6380370101683964161, guid: 16e4a92623ae23842970e695c76b0837, type: 3}
   - {fileID: 6289153279414416494, guid: d5942666ed96ff046b4c663346d2e58a, type: 3}
-  failImage: {fileID: 0}
   failureUI: {fileID: 2195363564943962306, guid: c789c0b67d5a85b41b0749dd7da00ad1, type: 3}
+  successUI: {fileID: 2195363564943962306, guid: 2d4748dbc0d5ea1468cbaad5ba9b34d8, type: 3}
   failureParentTransform: {fileID: 1472282257}
   prev: {x: 0, y: 0}
   totalDistance: 0
   points: 0
   isBeingHeld: 0
   wasBeingHeld: 0
-  failed: 0
+  succeeded: 0
 --- !u!1 &1472282256
 GameObject:
   m_ObjectHideFlags: 0
