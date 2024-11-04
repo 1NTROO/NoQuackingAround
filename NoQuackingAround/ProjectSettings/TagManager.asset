@@ -60,3 +60,6 @@ TagManager:
   - name: sheesh
     uniqueID: 1241733155
     locked: 0
+  - name: trash
+    uniqueID: 2938097559
+    locked: 0
