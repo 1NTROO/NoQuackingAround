@@ -465,7 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryTransform: {fileID: 1862966025}
   trashUI: {fileID: 2232076495287201549, guid: f2958a9e6fae23e469c5a3afc1e589c8, type: 3}
-  minigameMusic: {fileID: 8300000, guid: 912b95153d5186a4eb420f54155e6086, type: 3}
+  minigameMusic: {fileID: 8300000, guid: 2a4dc910e3a922643bca05ed95ae6162, type: 3}
   trashList:
   - {fileID: 1142343953}
   - {fileID: 1147768449}

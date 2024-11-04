@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int speedLimit;
     [SerializeField] Rigidbody body;
-    [SerializeField] AudioClip patheticPark;
+    [SerializeField] AudioClip patheticPark, halfSavedPark, fixedPark;
     public Vector3 startPosition;
     public bool miniGameOne, miniGameTwo;
 
@@ -38,11 +38,11 @@ public class Player : MonoBehaviour
         }
         else if (miniGameOne || miniGameTwo)
         {
-
+            AudioManager.Instance.PlayAudio(halfSavedPark);
         }
         else if (miniGameOne && miniGameTwo)
         {
-            
+            AudioManager.Instance.PlayAudio(fixedPark);
         }
     }
 
