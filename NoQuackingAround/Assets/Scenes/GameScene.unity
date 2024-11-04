@@ -1800,6 +1800,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1755262700347111209, guid: 3a68e0ebd8dc88b4ca5c8c602f49f0fd, type: 3}
+      propertyPath: fixedPark
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e4058800f1c6554fbd08f1fc3ba0758, type: 3}
+    - target: {fileID: 1755262700347111209, guid: 3a68e0ebd8dc88b4ca5c8c602f49f0fd, type: 3}
       propertyPath: speedLimit
       value: 45
       objectReference: {fileID: 0}
@@ -1807,6 +1811,10 @@ PrefabInstance:
       propertyPath: patheticPark
       value: 
       objectReference: {fileID: 8300000, guid: dc04a3a04fbd34143b83920451bbcbbe, type: 3}
+    - target: {fileID: 1755262700347111209, guid: 3a68e0ebd8dc88b4ca5c8c602f49f0fd, type: 3}
+      propertyPath: halfSavedPark
+      value: 
+      objectReference: {fileID: 8300000, guid: 946f0cdaef2d5bb4e9ec1488fc530cb7, type: 3}
     - target: {fileID: 5341688682529367901, guid: 3a68e0ebd8dc88b4ca5c8c602f49f0fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
