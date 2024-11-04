@@ -16,10 +16,12 @@ public class Minigame2Manager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI pointsUI, timerText;
 
     [SerializeField] List<GameObject> levelsList;
+    [SerializeField] List<Image> results;
     [SerializeField] GameObject failureUI, successUI;
     [SerializeField] Transform failureParentTransform;
     [SerializeField] AudioClip minigameMusic;
     private GameObject levelNow;
+    private Image resultNow;
     private int currentLevel = 1;
     public Vector2 prev;
     public float totalDistance;
@@ -44,12 +46,17 @@ public class Minigame2Manager : MonoBehaviour
     }
     void Start()
     {
+        foreach (Image i in results)
+        {
+            i.enabled = false;
+        }
         isBeingHeld = false;
         // points = 0;
         // pointsUI.text = Convert.ToString("Points: " + points);
 
         ResetTimer();
         levelNow = Instantiate(levelsList.ElementAt(0), Vector3.zero, Quaternion.identity);
+        // results[0].gameObject.SetActive(true);
 
         AudioManager.Instance.PlayAudio(minigameMusic);
     }
@@ -75,7 +82,9 @@ public class Minigame2Manager : MonoBehaviour
             if (levelsList.Count() != 1)
             {
                 NextLevel(levelsList[1]);
+                results[currentLevel - 1].enabled = false;
                 currentLevel++;
+                results[currentLevel - 1].enabled = true;
             }
             else
             {
