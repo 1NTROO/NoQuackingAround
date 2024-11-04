@@ -19,7 +19,7 @@ public class Minigame1Manager : MonoBehaviour
     public List<GameObject> trashList = new List<GameObject>();
     public List<GameObject> trashInventoryList = new List<GameObject>();
     public TMPro.TextMeshProUGUI remainingTrash, timerText;
-    private float timer = 20f;
+    private float timer = 35f;
     void Awake()
     {
         if (instance != null) Destroy(instance);
@@ -74,6 +74,7 @@ public class Minigame1Manager : MonoBehaviour
         GameObject newTrashUI = Instantiate(trashUI, inventoryTransform);
 
         Color colour = trash.GetComponentInChildren<SpriteRenderer>().color;
+        newTrashUI.GetComponentInChildren<Image>().sprite = trash.GetComponentInChildren<SpriteRenderer>().sprite;
         newTrashUI.GetComponentInChildren<Image>().color = colour;
         colour.a = 0;
         trash.GetComponentInChildren<SpriteRenderer>().color = colour;
