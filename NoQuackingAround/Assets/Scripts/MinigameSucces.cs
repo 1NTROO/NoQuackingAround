@@ -4,30 +4,67 @@ using UnityEngine;
 
 public class MinigameSucces : MonoBehaviour
 {
-    public bool  M1 = false;
-    public bool M2 = false;
-    public Player script;
+    [SerializeField] int miniGameResponse;
+    [SerializeField] bool turnOn;
     void Start()
     {
-        
+        if (turnOn)
+        {
+            foreach (Transform t in gameObject.transform)
+            {
+                t.gameObject.SetActive(false);
+            }
+        }
+        else if (!turnOn)
+        {
+            foreach (Transform t in gameObject.transform)
+            {
+                t.gameObject.SetActive(true);
+            }
+        }
     }
     void Update()
     {
-        
+        OnAndOff();
     }
     public void OnAndOff()
     {
-        script = GetComponent<Player>();
-        M1 = script.miniGameOne;
-        M2 = script.miniGameTwo;
-
-        //if (M1 == true)
-        //{
-
-        //}
-        //if (M2 == true)
-        //{
-
-        //}
+        switch (miniGameResponse)
+        {
+            case 1:
+                if (Player.Instance.miniGameOne == true && turnOn)
+                {
+                    foreach (Transform t in gameObject.transform)
+                    {
+                        t.gameObject.SetActive(true);
+                    }
+                }
+                else if (Player.Instance.miniGameOne == true && !turnOn)
+                {
+                    foreach (Transform t in gameObject.transform)
+                    {
+                        t.gameObject.SetActive(false);
+                    }
+                }
+                break;
+            case 2:
+                if (Player.Instance.miniGameTwo == true && turnOn)
+                {
+                    foreach (Transform t in gameObject.transform)
+                    {
+                        t.gameObject.SetActive(true);
+                    }
+                }
+                if (Player.Instance.miniGameTwo == true && !turnOn)
+                {
+                    foreach (Transform t in gameObject.transform)
+                    {
+                        t.gameObject.SetActive(false);
+                    }
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

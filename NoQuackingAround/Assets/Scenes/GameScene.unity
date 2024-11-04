@@ -361,6 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33736006}
+  - component: {fileID: 33736007}
   m_Layer: 0
   m_Name: Trash
   m_TagString: Untagged
@@ -396,6 +397,20 @@ Transform:
   - {fileID: 774535823}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &33736007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33736005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599c8bc7baedeec40a4c9ae7a03d1cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameResponse: 1
+  turnOn: 0
 --- !u!1001 &49634211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7480,6 +7495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1107712953}
+  - component: {fileID: 1107712954}
   m_Layer: 0
   m_Name: Flowerperk
   m_TagString: Untagged
@@ -7526,6 +7542,20 @@ Transform:
   - {fileID: 217533976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107712954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107712952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599c8bc7baedeec40a4c9ae7a03d1cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameResponse: 2
+  turnOn: 1
 --- !u!1 &1107805003
 GameObject:
   m_ObjectHideFlags: 0
@@ -8834,6 +8864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1380219386}
+  - component: {fileID: 1380219387}
   m_Layer: 0
   m_Name: Flowerperk
   m_TagString: Untagged
@@ -8867,6 +8898,20 @@ Transform:
   - {fileID: 538381844}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1380219387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380219385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599c8bc7baedeec40a4c9ae7a03d1cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGameResponse: 1
+  turnOn: 1
 --- !u!1001 &1393205145
 PrefabInstance:
   m_ObjectHideFlags: 0
