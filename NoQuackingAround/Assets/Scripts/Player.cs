@@ -55,21 +55,32 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             moveVector.x += -speed;
+            GetComponent<SpriteRenderer>().flipX = false;
+            animator.SetBool("Walking", true);
         }
         if (Input.GetKey(KeyCode.D))
         {
             moveVector.x += speed;
+            GetComponent<SpriteRenderer>().flipX = true;
+            animator.SetBool("Walking", true);
         }
         if (Input.GetKey(KeyCode.W))
         {
             moveVector.y += speed;
+            animator.SetBool("Walking", true);
         }
         if (Input.GetKey(KeyCode.S))
         {
             moveVector.y += -speed;
+            animator.SetBool("Walking", true);
         }
-        animator.SetFloat("Velocity", moveVector.x);
-        animator.SetFloat("Velocity", moveVector.y);
+
+        
+        if (body.velocity.magnitude < 0.8) 
+        {
+            animator.SetBool("Walking", false);
+        }
+
         moveVector *= Time.deltaTime;
 
         body.AddRelativeForce(moveVector);
