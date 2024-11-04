@@ -23,7 +23,7 @@ public class CutSceneManager : MonoBehaviour
     }
     void Start()
     {
-        if (targetScene == 0)
+        if (targetScene == 0 || targetScene == 3)
         {
             AudioManager.Instance.PlayAudio(clip);
         }
@@ -35,6 +35,13 @@ public class CutSceneManager : MonoBehaviour
         if (timer <= 0)
         {
             SceneManager.LoadScene(targetScene);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 8)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene(targetScene);
+            }
         }
     }
 }
