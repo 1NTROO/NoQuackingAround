@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip patheticPark, halfSavedPark, fixedPark;
     public Vector3 startPosition;
     public bool miniGameOne, miniGameTwo;
+    public Animator animator;
 
     void Awake()
     {
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         if (!miniGameOne && !miniGameTwo)
         {
             AudioManager.Instance.PlayAudio(patheticPark);
@@ -65,7 +67,8 @@ public class Player : MonoBehaviour
         {
             moveVector.y += -speed;
         }
-
+        animator.SetFloat("Velocity", moveVector.x);
+        animator.SetFloat("Velocity", moveVector.y);
         moveVector *= Time.deltaTime;
 
         body.AddRelativeForce(moveVector);
