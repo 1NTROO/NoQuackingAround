@@ -48,9 +48,6 @@ TagManager:
   - name: ParkDecorationsBG
     uniqueID: 2418237319
     locked: 0
-  - name: Player
-    uniqueID: 2601819471
-    locked: 0
   - name: ParkDecorationShadow
     uniqueID: 283168497
     locked: 0
@@ -65,4 +62,7 @@ TagManager:
     locked: 0
   - name: trash
     uniqueID: 2938097559
+    locked: 0
+  - name: Player
+    uniqueID: 2601819471
     locked: 0

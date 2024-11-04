@@ -78,12 +78,12 @@ public class Player : MonoBehaviour
             body.velocity = Vector3.ClampMagnitude(body.velocity, speedLimit);
         }
 
-        if (miniGameOne && miniGameTwo)
+        if (miniGameOne && miniGameTwo && SceneManager.GetActiveScene().buildIndex == 0)
         {
             GameManager.Instance.canvas.enabled = true;
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(8);
             }
         }
     }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
+using System.Numerics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -73,6 +73,12 @@ public class GameManager : MonoBehaviour
                 }
                 else if (goToMiniGame)
                 {
+                    if (yapToMinigame == 1)
+                    {
+                        UnityEngine.Vector3 temp = Player.Instance.transform.position;
+                        temp.y -= 100;
+                        Player.Instance.transform.position = temp;
+                    }
                     isYappingDone = true;
                 }
                 else if (!goToMiniGame)
