@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private static Player instance;
     public static Player Instance { get { return instance; }}
 
-    [SerializeField] int speed;
+    [SerializeField] float speed;
     [SerializeField] int speedLimit;
     [SerializeField] Rigidbody body;
     [SerializeField] AudioClip patheticPark;
@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
         {
             moveVector.y += -speed;
         }
+
+        moveVector *= Time.deltaTime;
 
         body.AddRelativeForce(moveVector);
         if (body.velocity.magnitude > speedLimit)
