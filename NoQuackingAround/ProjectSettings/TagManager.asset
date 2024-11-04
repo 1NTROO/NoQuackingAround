@@ -37,13 +37,16 @@ TagManager:
   - 
   - 
   - ParkTrees
-  - 
-  - 
+  - Player
+  - ParkGround
   - 
   - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ParkDecorationBG
+    uniqueID: 313758495
     locked: 0
   - name: Player
     uniqueID: 2601819471
