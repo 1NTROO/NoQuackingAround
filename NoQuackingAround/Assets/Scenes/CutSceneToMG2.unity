@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: af27bc9105227384c9344a556e019dc8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f083b6a2c5bce2d4585281d70aae2142, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 5
   targetScene: 2
+  clip: {fileID: 0}
 --- !u!4 &419971565
 Transform:
   m_ObjectHideFlags: 0
