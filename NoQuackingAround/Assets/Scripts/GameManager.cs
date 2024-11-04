@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     public Canvas canvas;
     [SerializeField] TMPro.TextMeshProUGUI npcName, npcText;
-    [SerializeField] Image npcBord, npcRat;
-    [SerializeField] Image npcUI;
     private List<string> texts = new List<string>();
     public bool isYappingActive, isYappingDone;
     private bool goToMiniGame;

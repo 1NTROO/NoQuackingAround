@@ -27,7 +27,7 @@ public class ClickRegistration : MonoBehaviour
             {
                 Player.Instance.GetComponentInChildren<SpriteRenderer>().color = new Color(0,0,0,0);
             }
-            SceneManager.LoadScene(GameManager.Instance.yapToMinigame);
+            SceneManager.LoadScene(GameManager.Instance.yapToMinigame + 3);
         }
     }
 

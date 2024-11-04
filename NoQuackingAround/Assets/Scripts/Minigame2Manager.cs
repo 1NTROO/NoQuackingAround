@@ -85,7 +85,7 @@ public class Minigame2Manager : MonoBehaviour
                 }
                 else Player.Instance.miniGameTwo = true;
                 Player.Instance.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, 0, 1f);
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(7);
                 Player.Instance.SetStartPosAndScale(1);
             }
         }
