@@ -29,6 +29,11 @@ public class Minigame1Manager : MonoBehaviour
     {
         remainingTrash.text = "Trash remaining: " + trashList.Count;
         AudioManager.Instance.PlayAudio(minigameMusic);
+
+        Vector3 temp = Player.Instance.transform.position;
+        temp.y -= 100;
+        Player.Instance.transform.position = temp;
+
     }
 
     void Update()

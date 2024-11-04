@@ -28,6 +28,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        Player.Instance.miniGameOne = false;
+        Player.Instance.miniGameTwo = false;
         SceneManager.LoadScene(0);
     }
     public void RollCredits()
