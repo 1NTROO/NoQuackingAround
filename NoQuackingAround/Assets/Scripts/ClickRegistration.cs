@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,7 @@ public class ClickRegistration : MonoBehaviour
             if (GameManager.Instance.yapToMinigame == 1)
             {
                 Player.Instance.transform.localScale *= 2;
+                Player.Instance.speed *= 1.8f;
             }
             else if (GameManager.Instance.yapToMinigame == 2)
             {

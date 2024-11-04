@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private static Player instance;
     public static Player Instance { get { return instance; }}
 
-    [SerializeField] float speed;
+    public float speed;
     [SerializeField] int speedLimit;
     [SerializeField] Rigidbody body;
     [SerializeField] AudioClip patheticPark, halfSavedPark, fixedPark;
